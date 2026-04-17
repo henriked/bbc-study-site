@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BBC News - Climate Article</title>
 
 <style>
@@ -12,16 +13,41 @@ body {
   color: #121212;
 }
 
-/* Top bar */
-.topbar {
-  background: #bb1919;
-  color: white;
-  padding: 12px 20px;
-  font-size: 22px;
-  font-weight: bold;
+/* ===== BBC TOP NAV ===== */
+.bbc-header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
 }
 
-/* Container */
+.bbc-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  padding: 18px 22px;
+  font-size: 22px;
+  font-weight: 700;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.bbc-nav a {
+  text-decoration: none;
+  color: #000;
+  position: relative;
+}
+
+.bbc-nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -22px;
+  width: 92px;
+  height: 6px;
+  background: #000;
+}
+
+/* ===== ARTICLE CONTAINER ===== */
 .container {
   max-width: 750px;
   margin: 30px auto;
@@ -42,92 +68,15 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Meta info */
-.meta {
-  margin-bottom: 20px;
-}
-
-.meta .date {
-  font-size: 13px;
-  color: #6e6e6e;
-}
-
-.meta .author {
-  font-size: 17px;
-  font-weight: bold;
-  color: #121212;
-  margin-top: 4px;
-}
-
-.meta .role {
-  font-size: 13px;
-  color: #6e6e6e;
-  margin-top: 2px;
-}
-/* Image */
-.article-img {
-  width: 100%;
-  margin: 20px 0 5px 0;
-}
-
-.caption {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* Body text */
-p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-/* Quote box */
-.quote {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #121212;
-}
-  
-/* Keywords */
-.keywords {
-  margin-top: 30px;
-  font-size: 13px;
-  color: #777;
-}
-  /* NEW hover keyword tags */
-.keyword-tags {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
-}
-
-.tag {
-  background: #f2f2f2;
-  color: #222;
-  font-size: 13px;
-  padding: 8px 12px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tag:hover {
-  background: #3a3a3a;
-  color: white;
-}
-
+/* Top Meta Row */
 .header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
   padding-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .left-meta .time {
@@ -139,6 +88,7 @@ p {
   display: flex;
   gap: 15px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .icon-btn {
@@ -177,8 +127,10 @@ p {
   color: #4285F4;
 }
 
+/* Byline */
 .byline {
   margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .byline .name {
@@ -190,22 +142,90 @@ p {
   font-size: 13px;
   color: #666;
 }
-  
-</style>
 
+/* Image */
+.article-img {
+  width: 100%;
+  margin: 20px 0 5px 0;
+}
+
+.caption {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Body text */
+p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* Quotes */
+.quote {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #121212;
+}
+
+/* Tags */
+.keyword-tags {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.tag {
+  background: #f2f2f2;
+  color: #222;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: #3a3a3a;
+  color: white;
+}
+</style>
 </head>
 
 <body>
 
+<!-- BBC NAVIGATION -->
+<div class="bbc-header">
+  <div class="bbc-nav">
+    <a href="#" class="active">Home</a>
+    <a href="#">News</a>
+    <a href="#">Sport</a>
+    <a href="#">Business</a>
+    <a href="#">Technology</a>
+    <a href="#">Health</a>
+    <a href="#">Culture</a>
+    <a href="#">Arts</a>
+    <a href="#">Travel</a>
+    <a href="#">Earth</a>
+    <a href="#">Audio</a>
+    <a href="#">Video</a>
+    <a href="#">Live</a>
+  </div>
+</div>
+
+<!-- ARTICLE -->
 <div class="container">
 
 <h1>Climate action must come first, even if it slows the economy, scientists warn</h1>
 
 <div class="subhead">
-Experts argue that delaying green policy for the sake of growth, risks far costlier damage in the decades ahead
+Experts argue that delaying green policy for the sake of growth risks far costlier damage in the decades ahead.
 </div>
-
-<div class="article-bar">
 
 <div class="header-row">
 
@@ -240,21 +260,21 @@ Experts argue that delaying green policy for the sake of growth, risks far costl
 <div class="byline">
   <div class="name">Peter Wilson</div>
   <div class="role">Environment and tourism correspondent</div>
-</div> 
-  
+</div>
+
 <img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/1.png">
-  
+
 <div class="caption">
 Wind turbines near coastal farmland in the UK.
 </div>
 
 <p>
-Leading climate scientists and economists are calling on governments to prioritise emissions reductions over short-term economic growth. They say that the long-term costs of inaction far outweigh any near-term slowdown particularly because climate impacts are already becoming more frequent and severe across Europe.
+Leading climate scientists and economists are calling on governments to prioritise emissions reductions over short-term economic growth. They say that the long-term costs of inaction far outweigh any near-term slowdown, particularly because climate impacts are already becoming more frequent and severe across Europe.
 </p>
 
 <div class="quote">
 “The benefits of strong and early action far outweigh the economic costs of not acting.”<br>
-Lord Nicholas Stern, London School of Economics in the UK. 
+Lord Nicholas Stern, London School of Economics in the UK.
 </div>
 
 <p>
@@ -262,9 +282,8 @@ A growing body of evidence suggests that extreme weather events, rising sea leve
 </p>
 
 <div class="quote">
-“If we don’t act now, we’ll pay later - not just with money, but with our future. The longer we wait, the more costly it will become to fix the damage we are already causing. This isn’t just about economics or policy; it’s about the responsibility we have toward future generations.”
+“If we don’t act now, we’ll pay later - not just with money, but with our future. The longer we wait, the more costly it will become to fix the damage we are already causing. This isn’t just about economics or policy; it’s about the responsibility we have toward future generations.”<br><br>
 Leah Davies, 23, climate activist, Amsterdam.
-
 </div>
 
 <div class="keyword-tags">
@@ -277,5 +296,4 @@ Leah Davies, 23, climate activist, Amsterdam.
 
 </body>
 </html>
-
 
