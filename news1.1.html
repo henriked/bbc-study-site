@@ -13,13 +13,13 @@
 }
 
 body{
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:#fff;
   color:#111;
 }
 
 /* =========================
-   BBC HEADER ORIGINAL STYLE
+   BBC HEADER
 ========================= */
 .bbc-header{
   width:100%;
@@ -27,7 +27,7 @@ body{
   border-bottom:1px solid #e6e6e6;
 }
 
-.bbc-nav-wrapper{
+.bbc-nav-wrap{
   max-width:1220px;
   margin:0 auto;
   padding:0 18px;
@@ -53,12 +53,7 @@ body{
   font-size:18px;
   font-weight:700;
   position:relative;
-  padding:16px 0 14px 0;
-  transition:.15s;
-}
-
-.bbc-nav a:hover{
-  color:#000;
+  padding:16px 0 14px;
 }
 
 .bbc-nav a.active::after{
@@ -82,19 +77,19 @@ body{
 
 h1{
   font-size:42px;
-  line-height:1.13;
-  font-weight:700;
-  margin-bottom:16px;
+  line-height:1.12;
+  margin-bottom:14px;
 }
 
 .subhead{
   font-size:23px;
-  line-height:1.4;
   color:#444;
+  line-height:1.4;
   margin-bottom:26px;
 }
 
-.meta-row{
+/* META BAR ORIGINAL */
+.header-row{
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -104,33 +99,63 @@ h1{
   margin-bottom:18px;
 }
 
-.time{
+.left-meta .time{
   font-size:14px;
   color:#666;
 }
 
-.meta-buttons{
+.right-meta{
   display:flex;
-  gap:16px;
+  gap:18px;
+  align-items:center;
 }
 
-.meta-buttons button{
+.icon-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
   border:none;
   background:none;
   cursor:pointer;
   font-size:14px;
+  font-weight:700;
   color:#111;
 }
 
-.meta-buttons button:hover{
+.icon-btn svg{
+  fill:#111;
+}
+
+.icon-btn:hover{
   text-decoration:underline;
 }
 
+.google-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 16px;
+  border:1px solid #999;
+  border-radius:4px;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#555;
+}
+
+.google-btn .g{
+  font-size:24px;
+  font-weight:700;
+  color:#4285F4;
+}
+
+/* BYLINE */
 .byline{
   margin-bottom:22px;
 }
 
-.author{
+.name{
   font-size:18px;
   font-weight:700;
 }
@@ -138,9 +163,10 @@ h1{
 .role{
   font-size:13px;
   color:#666;
-  margin-top:3px;
+  margin-top:4px;
 }
 
+/* IMAGE */
 .article-img{
   width:100%;
   margin-bottom:6px;
@@ -162,14 +188,14 @@ p{
   font-size:22px;
   line-height:1.6;
   margin-bottom:24px;
-  font-weight:500;
 }
 
-.tags{
+/* TAGS */
+.keyword-tags{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:30px;
+  margin-top:28px;
   padding-top:18px;
   border-top:1px solid #eee;
 }
@@ -180,7 +206,6 @@ p{
   font-size:13px;
   border-radius:2px;
   cursor:pointer;
-  transition:.2s;
 }
 
 .tag:hover{
@@ -188,9 +213,7 @@ p{
   color:#fff;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 @media(max-width:900px){
 
   .bbc-nav{
@@ -214,10 +237,14 @@ p{
     font-size:18px;
   }
 
-  .meta-row{
+  .header-row{
     flex-direction:column;
     align-items:flex-start;
-    gap:12px;
+    gap:14px;
+  }
+
+  .right-meta{
+    flex-wrap:wrap;
   }
 }
 </style>
@@ -225,9 +252,9 @@ p{
 
 <body>
 
-<!-- BBC HEADER -->
+<!-- HEADER -->
 <header class="bbc-header">
-  <div class="bbc-nav-wrapper">
+  <div class="bbc-nav-wrap">
     <nav class="bbc-nav" id="bbcNav">
       <a href="#" class="active">Home</a>
       <a href="#">News</a>
@@ -255,19 +282,40 @@ p{
 Experts argue that delaying green policy for the sake of growth risks far costlier damage in the decades ahead.
 </div>
 
-<div class="meta-row">
-  <div class="time">10 hours ago</div>
+<!-- ORIGINAL BUTTON BAR -->
+<div class="header-row">
 
-  <div class="meta-buttons">
-    <button>Share</button>
-    <button>Save</button>
-    <button>Add as preferred on Google</button>
-  </div>
+<div class="left-meta">
+<div class="time">10 hours ago</div>
+</div>
+
+<div class="right-meta">
+
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
+</svg>
+Share
+</button>
+
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
+</svg>
+Save
+</button>
+
+<button class="google-btn">
+<span class="g">G</span>
+Add as preferred on Google
+</button>
+
+</div>
 </div>
 
 <div class="byline">
-  <div class="author">Peter Wilson</div>
-  <div class="role">Environment and tourism correspondent</div>
+<div class="name">Peter Wilson</div>
+<div class="role">Environment and tourism correspondent</div>
 </div>
 
 <img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/1.png">
@@ -285,31 +333,30 @@ Leading climate scientists and economists are calling on governments to prioriti
 </div>
 
 <p>
-A growing body of evidence suggests that extreme weather events, rising sea levels, and disruptions to agriculture are already costing economies billions annually.
+A growing body of evidence suggests that extreme weather events are already costing economies billions annually.
 </p>
 
 <div class="quote">
 “If we don’t act now, we’ll pay later - not just with money, but with our future.”
 </div>
 
-<div class="tags">
-  <div class="tag">Climate Change</div>
-  <div class="tag">Economy</div>
-  <div class="tag">Environment</div>
+<div class="keyword-tags">
+<div class="tag">Climate Change</div>
+<div class="tag">Economy</div>
+<div class="tag">Environment</div>
 </div>
 
 </div>
 
 <script>
-const navLinks = document.querySelectorAll("#bbcNav a");
+const links=document.querySelectorAll("#bbcNav a");
 
-navLinks.forEach(link=>{
-  link.addEventListener("click",function(e){
-    e.preventDefault();
-
-    navLinks.forEach(item=>item.classList.remove("active"));
-    this.classList.add("active");
-  });
+links.forEach(link=>{
+link.addEventListener("click",function(e){
+e.preventDefault();
+links.forEach(item=>item.classList.remove("active"));
+this.classList.add("active");
+});
 });
 </script>
 
