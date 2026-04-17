@@ -1,1 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBC News Style</title>
 
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
+  color:#111;
+}
+
+/* =========================
+   BBC HEADER
+========================= */
+.bbc-header{
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.bbc-nav-wrap{
+  max-width:1220px;
+  margin:0 auto;
+  padding:0 18px;
+}
+
+.bbc-nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  height:52px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+}
+
+.bbc-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.bbc-nav a{
+  text-decoration:none;
+  color:#111;
+  font-size:18px;
+  font-weight:700;
+  position:relative;
+  padding:16px 0 14px;
+}
+
+.bbc-nav a.divider-right{
+  padding-right:28px;
+  margin-right:6px;
+}
+
+.bbc-nav a.divider-right::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:30px;
+  background:#cfcfcf;
+}
+  
+.bbc-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:4px;
+  background:#000;
+}
+
+/* =========================
+   ARTICLE
+========================= */
+.container{
+  max-width:760px;
+  margin:34px auto;
+  padding:0 20px;
+}
+
+h1{
+  font-size:42px;
+  line-height:1.12;
+  margin-bottom:14px;
+}
+
+.subhead{
+  font-size:23px;
+  color:#444;
+  line-height:1.4;
+  margin-bottom:26px;
+}
+
+/* META BAR ORIGINAL */
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  margin-bottom:18px;
+}
+.left-meta .time{
+  font-size:14px;
+  color:#666;
+}
+
+.right-meta{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.icon-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#111;
+}
+
+.icon-btn svg{
+  fill:#111;
+}
+
+.icon-btn:hover{
+  text-decoration:underline;
+}
+
+.google-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 16px;
+  border:1px solid #999;
+  border-radius:4px;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#555;
+}
+
+.google-btn .g{
+  font-size:24px;
+  font-weight:700;
+  color:#4285F4;
+}
+
+/* BYLINE */
+.byline{
+  margin-bottom:22px;
+}
+
+.name{
+  font-size:18px;
+  font-weight:700;
+}
+
+.role{
+  font-size:13px;
+  color:#666;
+  margin-top:4px;
+}
+
+/* IMAGE */
+.article-img{
+  width:100%;
+  margin-bottom:6px;
+}
+
+.caption{
+  font-size:12px;
+  color:#666;
+  margin-bottom:24px;
+}
+
+p{
+  font-size:21px;
+  line-height:1.68;
+  margin-bottom:24px;
+}
+
+.quote{
+  font-size:22px;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+
+/* TAGS */
+.keyword-tags{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid #eee;
+}
+
+.tag{
+  background:#f2f2f2;
+  padding:8px 12px;
+  font-size:13px;
+  border-radius:2px;
+  cursor:pointer;
+}
+
+.tag:hover{
+  background:#111;
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .bbc-nav{
+    gap:24px;
+    height:48px;
+  }
+
+  .bbc-nav a{
+    font-size:16px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  .subhead{
+    font-size:20px;
+  }
+
+  p{
+    font-size:18px;
+  }
+
+  .header-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+
+  .right-meta{
+    flex-wrap:wrap;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="bbc-header">
+  <div class="bbc-nav-wrap">
+    <nav class="bbc-nav" id="bbcNav">
+      <a href="#" class="active">Home</a>
+      <a href="#">News</a>
+      <a href="#">Sport</a>
+      <a href="#">Business</a>
+      <a href="#">Technology</a>
+      <a href="#">Health</a>
+      <a href="#">Culture</a>
+      <a href="#">Arts</a>
+      <a href="#">Travel</a>
+      <a href="#" class="divider-right">Earth</a>
+<a href="#">Audio</a>
+      <a href="#">Video</a>
+      <a href="#">Live</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ARTICLE -->
+<div class="container">
+
+<h1> Academics says that gender-neutral language in public life fosters inclusion </h1>
+
+<div class="subhead">
+Linguists and equality scholars argue that resisting changes in language causes real harm to people’s sense of belonging.
+</div>
+
+<!-- ORIGINAL BUTTON BAR -->
+<div class="header-row">
+
+<div class="left-meta">
+<div class="time">7 hours ago</div>
+</div>
+
+<div class="right-meta">
+
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
+</svg>
+Share
+</button>
+
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
+</svg>
+Save
+</button>
+
+<button class="google-btn">
+<span class="g">G</span>
+Add as preferred on Google
+</button>
+
+</div>
+</div>
+
+<div class="byline">
+<div class="name">Charlotte Brown </div>
+<div class="role">Social Affairs Editor </div>
+</div>
+
+<img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/6.jpg">
+
+<div class="caption">
+Debates over sex-based language is increasingly prominent in Europe
+</div>
+
+<p>
+Linguists and inclusion researchers are making the case for requiring public institutions to adopt gender-neutral language, arguing that it reflects the needs of millions of people and builds on a long tradition of language reform in public life.
+</p>
+
+
+<div class="quote">
+“Using gender-inclusive language is more than just using the right pronouns. It is about recognising that gender is not binary and acknowledging the experiences of individuals who do not conform to traditional gender norms.”, according to the Gender inclusive language guidance from the University of London. 
+</div>
+
+<p>
+Gender-neutral language has a well-established history in public institutions. For instance, in 2015 in the UK the Royal Mail, several major banks, and government agencies responsible for official documents including driving licences adopted the gender-neutral honorific “Mx”. 
+</p>
+
+<p>
+Proponents of mandatory gender-neutral language standards in public institutions argue that consistent, guidance protects staff and service users from inconsistent treatment, and signals that all members of the public are equally valued by the state - regardless of gender identity.
+</p>
+
+<div class="keyword-tags">
+<div class="tag">Language</div>
+<div class="tag">Inclusion</div>
+<div class="tag">Education policy</div>
+</div>
+
+</div>
+
+<script>
+const links=document.querySelectorAll("#bbcNav a");
+
+links.forEach(link=>{
+link.addEventListener("click",function(e){
+e.preventDefault();
+links.forEach(item=>item.classList.remove("active"));
+this.classList.add("active");
+});
+});
+</script>
+
+</body>
+</html>
