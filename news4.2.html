@@ -2,278 +2,381 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BBC News - Climate Article</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBC News Style</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
-  color: #121212;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* Top bar */
-.topbar {
-  background: #bb1919;
-  color: white;
-  padding: 12px 20px;
-  font-size: 22px;
-  font-weight: bold;
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
+  color:#111;
 }
 
-/* Container */
-.container {
-  max-width: 750px;
-  margin: 30px auto;
-  padding: 0 20px;
+/* =========================
+   BBC HEADER
+========================= */
+.bbc-header{
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
 }
 
-/* Headline */
-h1 {
-  font-size: 32px;
-  line-height: 1.2;
-  margin-bottom: 10px;
+.bbc-nav-wrap{
+  max-width:1220px;
+  margin:0 auto;
+  padding:0 18px;
 }
 
-/* Subhead */
-.subhead {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 20px;
+.bbc-nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  height:52px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
 }
 
-/* Meta info */
-.meta {
-  margin-bottom: 20px;
+.bbc-nav::-webkit-scrollbar{
+  display:none;
 }
 
-.meta .date {
-  font-size: 13px;
-  color: #6e6e6e;
+.bbc-nav a{
+  text-decoration:none;
+  color:#111;
+  font-size:18px;
+  font-weight:700;
+  position:relative;
+  padding:16px 0 14px;
 }
 
-.meta .author {
-  font-size: 17px;
-  font-weight: bold;
-  color: #121212;
-  margin-top: 4px;
+.bbc-nav a.divider-right{
+  padding-right:28px;
+  margin-right:6px;
 }
 
-.meta .role {
-  font-size: 13px;
-  color: #6e6e6e;
-  margin-top: 2px;
-}
-/* Image */
-.article-img {
-  width: 100%;
-  margin: 20px 0 5px 0;
-}
-
-.caption {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-/* Body text */
-p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-/* Quote box */
-.quote {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #121212;
+.bbc-nav a.divider-right::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:30px;
+  background:#cfcfcf;
 }
   
-/* Keywords */
-.keywords {
-  margin-top: 30px;
-  font-size: 13px;
-  color: #777;
-}
-  /* NEW hover keyword tags */
-.keyword-tags {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
+.bbc-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:4px;
+  background:#000;
 }
 
-.tag {
-  background: #f2f2f2;
-  color: #222;
-  font-size: 13px;
-  padding: 8px 12px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+/* =========================
+   ARTICLE
+========================= */
+.container{
+  max-width:760px;
+  margin:34px auto;
+  padding:0 20px;
 }
 
-.tag:hover {
-  background: #3a3a3a;
-  color: white;
+h1{
+  font-size:42px;
+  line-height:1.12;
+  margin-bottom:14px;
 }
 
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  padding-bottom: 10px;
+.subhead{
+  font-size:23px;
+  color:#444;
+  line-height:1.4;
+  margin-bottom:26px;
 }
 
-.left-meta .time {
-  font-size: 14px;
-  color: #555;
+/* META BAR ORIGINAL */
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  margin-bottom:18px;
+}
+.left-meta .time{
+  font-size:14px;
+  color:#666;
 }
 
-.right-meta {
-  display: flex;
-  gap: 15px;
-  align-items: center;
+.right-meta{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-.icon-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  font-size: 14px;
-  color: #222;
-  cursor: pointer;
+.icon-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#111;
 }
 
-.icon-btn svg {
-  fill: #222;
+.icon-btn svg{
+  fill:#111;
 }
 
-.icon-btn:hover {
-  text-decoration: underline;
+.icon-btn:hover{
+  text-decoration:underline;
 }
 
-.google-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #ddd;
-  background: white;
-  padding: 5px 10px;
-  font-size: 13px;
-  border-radius: 4px;
-  cursor: pointer;
+.google-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 16px;
+  border:1px solid #999;
+  border-radius:4px;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#555;
 }
 
-.google-btn .g {
-  font-weight: bold;
-  color: #4285F4;
+.google-btn .g{
+  font-size:24px;
+  font-weight:700;
+  color:#4285F4;
 }
 
-.byline {
-  margin-top: 8px;
+/* BYLINE */
+.byline{
+  margin-bottom:22px;
 }
 
-.byline .name {
-  font-size: 17px;
-  font-weight: bold;
+.name{
+  font-size:18px;
+  font-weight:700;
 }
 
-.byline .role {
-  font-size: 13px;
-  color: #666;
+.role{
+  font-size:13px;
+  color:#666;
+  margin-top:4px;
 }
-  
+
+/* IMAGE */
+.article-img{
+  width:100%;
+  margin-bottom:6px;
+}
+
+.caption{
+  font-size:12px;
+  color:#666;
+  margin-bottom:24px;
+}
+
+p{
+  font-size:21px;
+  line-height:1.68;
+  margin-bottom:24px;
+}
+
+.quote{
+  font-size:22px;
+  line-height:1.6;
+  margin-bottom:24px;
+}
+
+/* TAGS */
+.keyword-tags{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid #eee;
+}
+
+.tag{
+  background:#f2f2f2;
+  padding:8px 12px;
+  font-size:13px;
+  border-radius:2px;
+  cursor:pointer;
+}
+
+.tag:hover{
+  background:#111;
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .bbc-nav{
+    gap:24px;
+    height:48px;
+  }
+
+  .bbc-nav a{
+    font-size:16px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  .subhead{
+    font-size:20px;
+  }
+
+  p{
+    font-size:18px;
+  }
+
+  .header-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+
+  .right-meta{
+    flex-wrap:wrap;
+  }
+}
 </style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
+<header class="bbc-header">
+  <div class="bbc-nav-wrap">
+    <nav class="bbc-nav" id="bbcNav">
+      <a href="#" class="active">Home</a>
+      <a href="#">News</a>
+      <a href="#">Sport</a>
+      <a href="#">Business</a>
+      <a href="#">Technology</a>
+      <a href="#">Health</a>
+      <a href="#">Culture</a>
+      <a href="#">Arts</a>
+      <a href="#">Travel</a>
+      <a href="#" class="divider-right">Earth</a>
+<a href="#">Audio</a>
+      <a href="#">Video</a>
+      <a href="#">Live</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ARTICLE -->
 <div class="container">
 
-<h1>Climate action must come first, even if it slows the economy, scientists warn</h1>
+<h1> “Taxes on wealth are inefficient, difficult to enforce, and unlikely to meet redistributive goals”, experts say  </h1>
 
 <div class="subhead">
-Experts argue that delaying green policy for the sake of growth, risks far costlier damage in the decades ahead
+According to experts an EU wealth tax would be a “poor substitute” for reform and risks driving capital abroad 
 </div>
 
-<div class="article-bar">
-
+<!-- ORIGINAL BUTTON BAR -->
 <div class="header-row">
 
-  <div class="left-meta">
-    <div class="time">10 hours ago</div>
-  </div>
+<div class="left-meta">
+<div class="time">6 hours ago</div>
+</div>
 
-  <div class="right-meta">
+<div class="right-meta">
 
-    <button class="icon-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
-      </svg>
-      Share
-    </button>
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
+</svg>
+Share
+</button>
 
-    <button class="icon-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
-      </svg>
-      Save
-    </button>
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
+</svg>
+Save
+</button>
 
-    <button class="google-btn">
-      <span class="g">G</span>
-      Add as preferred on Google
-    </button>
+<button class="google-btn">
+<span class="g">G</span>
+Add as preferred on Google
+</button>
 
-  </div>
+</div>
 </div>
 
 <div class="byline">
-  <div class="name">Peter Wilson</div>
-  <div class="role">Environment and tourism correspondent</div>
-</div> 
-  
-<img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/1.png">
-  
+<div class="name">Olivia Davies </div>
+<div class="role">Economic editor </div>
+</div>
+
+<img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/4.jpg">
+
 <div class="caption">
-Wind turbines near coastal farmland in the UK.
+The European Parliament in Brussels.
 </div>
 
 <p>
-Leading climate scientists and economists are calling on governments to prioritise emissions reductions over short-term economic growth. They say that the long-term costs of inaction far outweigh any near-term slowdown particularly because climate impacts are already becoming more frequent and severe across Europe.
+Economic experts are pushing back against proposals for an EU-wide wealth tax, arguing that annual levies on net assets are burdensome, and represent a less effective way to raise revenue than reforming existing capital and inheritance taxes.
 </p>
 
 <div class="quote">
-“The benefits of strong and early action far outweigh the economic costs of not acting.”<br>
-Lord Nicholas Stern, London School of Economics in the UK. 
+“A wealth tax would be a poor substitute for properly taxing the sources and uses of wealth.”
+Stuart Adam, Institute for Fiscal Studies (IFS)
 </div>
 
 <p>
-A growing body of evidence suggests that extreme weather events, rising sea levels, and disruptions to agriculture are already costing economies hundreds of billions of euros annually. According to the European Environment Agency, climate-related disasters in Europe alone caused an estimated €145 billion in losses over the past decade.
+The IFS argument draws on evidence from European countries that have introduced and abandoned annual wealth taxes. Experts agree that such taxes have “frequently failed to meet their redistributive goals”. 
 </p>
-
+  
 <div class="quote">
-“If we don’t act now, we’ll pay later - not just with money, but with our future. The longer we wait, the more costly it will become to fix the damage we are already causing. This isn’t just about economics or policy; it’s about the responsibility we have toward future generations.”
-Leah Davies, 23, climate activist, Amsterdam.
-
+“A wealth tax might sound fair in principle, but in practice it risks pushing capital and investment out of the country.” Giovanna Smith, 45, business owner, Amsterdam.
 </div>
 
+<p>
+Sceptics of an EU wealth tax further argue that, without complete capital controls across the bloc, wealthy individuals and businesses would have strong incentives to shift assets to lower-tax jurisdictions. 
+</p>
+  
 <div class="keyword-tags">
-  <div class="tag">Climate Change</div>
-  <div class="tag">Economy</div>
-  <div class="tag">Environment</div>
+<div class="tag">Wealth tax</div>
+<div class="tag">EU</div>
+<div class="tag">Fiscal policy</div>
 </div>
 
 </div>
+
+<script>
+const links=document.querySelectorAll("#bbcNav a");
+
+links.forEach(link=>{
+link.addEventListener("click",function(e){
+e.preventDefault();
+links.forEach(item=>item.classList.remove("active"));
+this.classList.add("active");
+});
+});
+</script>
 
 </body>
 </html>
