@@ -2,236 +2,333 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BBC News - Climate Article</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBC News Style</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #ffffff;
-  color: #121212;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* Top bar */
-.topbar {
-  background: #bb1919;
-  color: white;
-  padding: 12px 20px;
-  font-size: 22px;
-  font-weight: bold;
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:#fff;
+  color:#111;
 }
 
-/* Container */
-.container {
-  max-width: 750px;
-  margin: 30px auto;
-  padding: 0 20px;
+/* =========================
+   BBC HEADER
+========================= */
+.bbc-header{
+  width:100%;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
 }
 
-/* Headline */
-h1 {
-  font-size: 32px;
-  line-height: 1.2;
-  margin-bottom: 10px;
+.bbc-nav-wrap{
+  max-width:1220px;
+  margin:0 auto;
+  padding:0 18px;
 }
 
-/* Subhead */
-.subhead {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 20px;
+.bbc-nav{
+  display:flex;
+  align-items:center;
+  gap:34px;
+  height:52px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
 }
 
-/* Meta info */
-.meta {
-  margin-bottom: 20px;
+.bbc-nav::-webkit-scrollbar{
+  display:none;
 }
 
-.meta .date {
-  font-size: 13px;
-  color: #6e6e6e;
+.bbc-nav a{
+  text-decoration:none;
+  color:#111;
+  font-size:18px;
+  font-weight:700;
+  position:relative;
+  padding:16px 0 14px;
 }
 
-.meta .author {
-  font-size: 17px;
-  font-weight: bold;
-  color: #121212;
-  margin-top: 4px;
+.bbc-nav a.divider-right{
+  padding-right:28px;
+  margin-right:6px;
 }
 
-.meta .role {
-  font-size: 13px;
-  color: #6e6e6e;
-  margin-top: 2px;
+.bbc-nav a.divider-right::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:30px;
+  background:#cfcfcf;
+}
+  
+.bbc-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:4px;
+  background:#000;
 }
 
-/* Image */
-.article-img {
-  width: 100%;
-  margin: 20px 0 5px 0;
+/* =========================
+   ARTICLE
+========================= */
+.container{
+  max-width:760px;
+  margin:34px auto;
+  padding:0 20px;
 }
 
-.caption {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 20px;
+h1{
+  font-size:42px;
+  line-height:1.12;
+  margin-bottom:14px;
 }
 
-/* Body text */
-p {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
+.subhead{
+  font-size:23px;
+  color:#444;
+  line-height:1.4;
+  margin-bottom:26px;
 }
 
-/* Quote box */
-.quote {
-  font-size: 18px;
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #121212;
+/* META BAR ORIGINAL */
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  margin-bottom:18px;
+}
+.left-meta .time{
+  font-size:14px;
+  color:#666;
 }
 
-/* Keywords */
-.keyword-tags {
-  margin-top: 30px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
+.right-meta{
+  display:flex;
+  gap:18px;
+  align-items:center;
 }
 
-.tag {
-  background: #f2f2f2;
-  color: #222;
-  font-size: 13px;
-  padding: 8px 12px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.icon-btn{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#111;
 }
 
-.tag:hover {
-  background: #3a3a3a;
-  color: white;
+.icon-btn svg{
+  fill:#111;
 }
 
-.header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  padding-bottom: 10px;
+.icon-btn:hover{
+  text-decoration:underline;
 }
 
-.left-meta .time {
-  font-size: 14px;
-  color: #555;
+.google-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 16px;
+  border:1px solid #999;
+  border-radius:4px;
+  background:#fff;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  color:#555;
 }
 
-.right-meta {
-  display: flex;
-  gap: 15px;
-  align-items: center;
+.google-btn .g{
+  font-size:24px;
+  font-weight:700;
+  color:#4285F4;
 }
 
-.icon-btn {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  font-size: 14px;
-  color: #222;
-  cursor: pointer;
+/* BYLINE */
+.byline{
+  margin-bottom:22px;
 }
 
-.icon-btn svg {
-  fill: #222;
+.name{
+  font-size:18px;
+  font-weight:700;
 }
 
-.icon-btn:hover {
-  text-decoration: underline;
+.role{
+  font-size:13px;
+  color:#666;
+  margin-top:4px;
 }
 
-.google-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid #ddd;
-  background: white;
-  padding: 5px 10px;
-  font-size: 13px;
-  border-radius: 4px;
-  cursor: pointer;
+/* IMAGE */
+.article-img{
+  width:100%;
+  margin-bottom:6px;
 }
 
-.google-btn .g {
-  font-weight: bold;
-  color: #4285F4;
+.caption{
+  font-size:12px;
+  color:#666;
+  margin-bottom:24px;
 }
 
-.byline {
-  margin-top: 8px;
+p{
+  font-size:21px;
+  line-height:1.68;
+  margin-bottom:24px;
 }
 
-.byline .name {
-  font-size: 17px;
-  font-weight: bold;
+.quote{
+  font-size:22px;
+  line-height:1.6;
+  margin-bottom:24px;
 }
 
-.byline .role {
-  font-size: 13px;
-  color: #666;
+/* TAGS */
+.keyword-tags{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid #eee;
+}
+
+.tag{
+  background:#f2f2f2;
+  padding:8px 12px;
+  font-size:13px;
+  border-radius:2px;
+  cursor:pointer;
+}
+
+.tag:hover{
+  background:#111;
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .bbc-nav{
+    gap:24px;
+    height:48px;
+  }
+
+  .bbc-nav a{
+    font-size:16px;
+  }
+
+  h1{
+    font-size:34px;
+  }
+
+  .subhead{
+    font-size:20px;
+  }
+
+  p{
+    font-size:18px;
+  }
+
+  .header-row{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+
+  .right-meta{
+    flex-wrap:wrap;
+  }
 }
 </style>
-
 </head>
 
 <body>
 
+<!-- HEADER -->
+<header class="bbc-header">
+  <div class="bbc-nav-wrap">
+    <nav class="bbc-nav" id="bbcNav">
+      <a href="#" class="active">Home</a>
+      <a href="#">News</a>
+      <a href="#">Sport</a>
+      <a href="#">Business</a>
+      <a href="#">Technology</a>
+      <a href="#">Health</a>
+      <a href="#">Culture</a>
+      <a href="#">Arts</a>
+      <a href="#">Travel</a>
+      <a href="#" class="divider-right">Earth</a>
+<a href="#">Audio</a>
+      <a href="#">Video</a>
+      <a href="#">Live</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ARTICLE -->
 <div class="container">
 
-<h1>Experts urge to put growth first because the costs of climate action are damaging economies</h1>
+<h1>Climate action must come first, even if it slows the economy, scientists warn</h1>
 
 <div class="subhead">
-Some experts warn that aggressive climate policy is outpacing what economies can absorb, risking jobs and living standards.
+Experts argue that delaying green policy for the sake of growth, risks far costlier damage in the decades ahead
 </div>
 
+<!-- ORIGINAL BUTTON BAR -->
 <div class="header-row">
 
- <div class="left-meta">
-  <div class="time">10 hours ago</div>
+<div class="left-meta">
+<div class="time">10 hours ago</div>
 </div>
 
-  <div class="right-meta">
+<div class="right-meta">
 
-    <button class="icon-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
-      </svg>
-      Share
-    </button>
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M18 16a3 3 0 0 0-2.4 1.2L8.9 13.7a3 3 0 0 0 0-3.4l6.7-3.5A3 3 0 1 0 15 5a3 3 0 0 0 .1.7L8.4 9.2a3 3 0 1 0 0 5.6l6.7 3.5A3 3 0 1 0 18 16z"/>
+</svg>
+Share
+</button>
 
-    <button class="icon-btn">
-      <svg viewBox="0 0 24 24" width="18" height="18">
-        <path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
-      </svg>
-      Save
-    </button>
+<button class="icon-btn">
+<svg viewBox="0 0 24 24" width="20" height="20">
+<path d="M6 3h12a1 1 0 0 1 1 1v18l-7-4-7 4V4a1 1 0 0 1 1-1z"/>
+</svg>
+Save
+</button>
 
-    <button class="google-btn">
-      <span class="g">G</span>
-      Add as preferred on Google
-    </button>
+<button class="google-btn">
+<span class="g">G</span>
+Add as preferred on Google
+</button>
 
-  </div>
+</div>
 </div>
 
 <div class="byline">
-  <div class="name">Peter Wilson</div>
-  <div class="role">Environment and tourism correspondent</div>
+<div class="name">Peter Wilson</div>
+<div class="role">Environment and tourism correspondent</div>
 </div>
 
 <img class="article-img" src="https://raw.githubusercontent.com/henriked/bbc-study-site/main/1.png">
@@ -241,28 +338,43 @@ Wind turbines near coastal farmland in the UK.
 </div>
 
 <p>
-A number of economists are urging governments to slow climate regulation, arguing that rapid green mandates are placing a burden on businesses and households, which are already squeezed by high inflation and low growth.
+Leading climate scientists and economists are calling on governments to prioritise emissions reductions over short-term economic growth. They say that the long-term costs of inaction far outweigh any near-term slowdown particularly because climate impacts are already becoming more frequent and severe across Europe. 
 </p>
 
 <div class="quote">
-“The business-as-usual baseline, against which costs of action are measured, conveys a profoundly misleading message to policymakers that there is an alternative option in which fossil fuels are consumed in ever greater quantities without any negative consequences to economic growth itself.”, says Lord Nicholas Stern, from the London School of Economics, in the UK.  
+“The benefits of strong and early action far outweigh the economic costs of not acting.”
+Lord Nicholas Stern, London School of Economics in the UK. 
 </div>
 
 <p>
-Energy costs across Europe have risen sharply in recent years. This is partly driven by the accelerated phase-out of fossil fuels. Experts argue that poorer households and energy-intensive industries are bearing a disproportionate share of the transition costs.
+A growing body of evidence suggests that extreme weather events are already costing economies billions annually. According to the European Environment Agency, climate-related disasters in Europe alone caused an estimated €145 billion in losses over the past decade. 
 </p>
 
 <div class="quote">
-“I’m all for looking after the planet, but someone must look after us first. My overheads have gone up so much I’m not sure I can keep the business going.” Sandra Howarth, 49, small business owner, Amsterdam.
+“If we don’t act now, we’ll pay later - not just with money, but with our future. The longer we wait, the more costly it will become to fix the damage we are already causing. This isn’t just about economics or policy; it’s about the responsibility we have toward future generations.”
+Leah Davies, 23, climate activist, Amsterdam.
+
 </div>
 
 <div class="keyword-tags">
-  <div class="tag">Economy</div>
-  <div class="tag">Climate policy</div>
-  <div class="tag">Energy</div>
+<div class="tag">Climate Change</div>
+<div class="tag">Economy</div>
+<div class="tag">Environment</div>
 </div>
 
 </div>
+
+<script>
+const links=document.querySelectorAll("#bbcNav a");
+
+links.forEach(link=>{
+link.addEventListener("click",function(e){
+e.preventDefault();
+links.forEach(item=>item.classList.remove("active"));
+this.classList.add("active");
+});
+});
+</script>
 
 </body>
 </html>
