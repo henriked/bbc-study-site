@@ -56,6 +56,22 @@ body{
   padding:16px 0 14px;
 }
 
+.bbc-nav a.divider-right{
+  padding-right:28px;
+  margin-right:6px;
+}
+
+.bbc-nav a.divider-right::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:18px;
+  background:#cfcfcf;
+}
+  
 .bbc-nav a.active::after{
   content:"";
   position:absolute;
@@ -262,8 +278,8 @@ p{
       <a href="#">Culture</a>
       <a href="#">Arts</a>
       <a href="#">Travel</a>
-      <a href="#">Earth</a>
-      <a href="#">Audio</a>
+      <a href="#" class="divider-right">Earth</a>
+<a href="#">Audio</a>
       <a href="#">Video</a>
       <a href="#">Live</a>
     </nav>
